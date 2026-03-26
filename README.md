@@ -20,7 +20,7 @@ npm install @viliaapro/apifetch @standard-schema/spec http-status-codes zod
 ## Usage
 
 ```typescript
-import { apiFetch } from '@viliaapro/apifetch';
+import { apiFetch, handleResponse } from '@viliaapro/apifetch';
 import { StatusCodes } from 'http-status-codes';
 import { z } from 'zod';
 
@@ -88,6 +88,15 @@ try {
 | `options`  | `RequestInit`         | Standard fetch options (optional)  |
 
 Returns `Promise<R>` where `R` is inferred from the transform return types.
+
+### `handleResponse<R>(response, handlers)`
+
+| Parameter  | Type                  | Description                        |
+|------------|-----------------------|------------------------------------|
+| `response` | `Response`            | A fetch `Response` object          |
+| `handlers` | `ResponseHandlers<R>` | Map of status codes to handlers    |
+
+Returns `Promise<R>`. Useful when you already have a `Response` object from an external fetch client or middleware.
 
 ## License
 

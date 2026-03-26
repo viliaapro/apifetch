@@ -37,16 +37,10 @@ export class MalformedResponseError extends ApiError {
   }
 }
 
-export async function apiFetch<R>(
-  url: string,
-  handlers: ResponseHandlers<R>,
-  options: RequestInit = {}
+export async function handleResponse<R>(
+  response: Response,
+  handlers: ResponseHandlers<R>
 ): Promise<R> {
-  const response = await fetch(url, {
-    ...options,
-    headers: { 'Content-Type': 'application/json', ...options.headers },
-  });
-
   const handler = handlers[response.status];
 
   if (!handler) {
@@ -61,4 +55,17 @@ export async function apiFetch<R>(
   }
 
   return handler.transform(result.value);
+}
+
+export async function apiFetch<R>(
+  url: string,
+  handlers: ResponseHandlers<R>,
+  options: RequestInit = {}
+): Promise<R> {
+  const response = await fetch(url, {
+    ...options,
+    headers: { 'Content-Type': 'application/json', ...options.headers },
+  });
+
+  return handleResponse(response, handlers);
 }
