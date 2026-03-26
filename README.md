@@ -20,7 +20,7 @@ npm install @viliaapro/apifetch @standard-schema/spec http-status-codes zod
 ## Usage
 
 ```typescript
-import { apiFetch } from 'apifetch';
+import { apiFetch } from '@viliaapro/apifetch';
 import { StatusCodes } from 'http-status-codes';
 import { z } from 'zod';
 
@@ -63,7 +63,7 @@ Two exceptions are thrown, both extending `ApiError`:
 Both carry the original `Response` object and a `status` convenience getter.
 
 ```typescript
-import { UnrecognizedStatusError, MalformedResponseError } from 'apifetch';
+import { UnrecognizedStatusError, MalformedResponseError } from '@viliaapro/apifetch';
 
 try {
   const result = await apiFetch('/api/users/1', handlers);
