@@ -1,6 +1,6 @@
 {
   "name": "@viliaapro/apifetch",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A typed fetch wrapper with Standard Schema validation and status-code dispatch",
   "main": "dist/index.cjs",
   "module": "dist/index.js",

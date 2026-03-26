@@ -10,11 +10,11 @@ export type ResponseHandlers<R> = {
 };
 
 export class ApiError extends Error {
-  get status() { return this.response?.status; }
+  get status() { return this.response.status; }
 
   constructor(
     message: string,
-    public readonly response?: Response,
+    public readonly response: Response,
     options?: ErrorOptions
   ) {
     super(message, options);
