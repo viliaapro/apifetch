@@ -14,7 +14,7 @@ This means `apiFetch` never throws for non-ok responses. A 422 Unprocessable Con
 ## Installation
 
 ```bash
-npm install apifetch @standard-schema/spec http-status-codes zod
+npm install @viliaapro/apifetch @standard-schema/spec http-status-codes zod
 ```
 
 ## Usage
